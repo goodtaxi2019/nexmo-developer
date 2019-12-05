@@ -17,13 +17,6 @@ class TutorialController < ApplicationController
 
     @document_title = 'Tutorials'
 
-    @base_path = request.original_fullpath.chomp('/')
-
-    # We have to strip the last section off if it matches any code languages. Hacky, but it works
-    Nexmo::Markdown::CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
-      @base_path.gsub!(%r{/#{lang}$}, '')
-    end
-
     excluded_languages = ['csharp', 'javascript', 'kotlin', 'android', 'swift', 'objective_c']
     @languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
 
