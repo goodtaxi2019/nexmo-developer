@@ -101,6 +101,12 @@ class TutorialController < ApplicationController
     # If we don't have a current tutorial step, redirect to the first available page
     return if @tutorial_step
 
-    redirect_to "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}"
+    redirect_to url_for(
+      controller: :tutorial,
+      action: action_name,
+      product: @tutorial.current_product,
+      tutorial_name: @tutorial_name,
+      tutorial_step: @tutorial.first_step
+    )
   end
 end
