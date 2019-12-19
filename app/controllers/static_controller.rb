@@ -64,7 +64,7 @@ class StaticController < ApplicationController
 
     @document_title = @frontmatter['title']
 
-    @content = Nexmo::Markdown::Renderer.new.call(document)
+    @content = Nexmo::Markdown::Renderer.new(locale: params[:locale]).call(document)
 
     @navigation = :documentation
 

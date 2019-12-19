@@ -120,7 +120,7 @@ class MarkdownController < ApplicationController
     content = Nexmo::Markdown::Renderer.new({
       code_language: @code_language,
       current_user: current_user,
-      language: I18n.locale,
+      locale: params[:locale],
     }).call(document)
 
     [frontmatter, content]
