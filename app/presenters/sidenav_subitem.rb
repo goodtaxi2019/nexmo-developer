@@ -44,7 +44,7 @@ class SidenavSubitem < SidenavItem
         controller: :markdown,
         action: :show,
         document: navigation.document,
-        namespace: navigation.product,
+        namespace: namespace,
         only_path: true,
         locale: locale
       )
