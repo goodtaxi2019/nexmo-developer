@@ -24,8 +24,7 @@ class SidenavSubitem < SidenavItem
         controller: :tutorial,
         action: :index,
         product: @folder[:product],
-        only_path: true,
-        locale: locale
+        only_path: true
       }
       params.merge!(locale: I18n.locale) if enforce_locale?
       url_for(params)
@@ -35,7 +34,7 @@ class SidenavSubitem < SidenavItem
         document: Navigation.new(@folder).path_to_url,
         controller: controller,
         action: :show,
-        only_path: true,
+        only_path: true
       )
     elsif @folder[:path].starts_with?('app/views')
       navigation = Navigation.new(@folder)
