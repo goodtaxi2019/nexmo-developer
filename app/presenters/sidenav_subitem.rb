@@ -25,9 +25,6 @@ class SidenavSubitem < SidenavItem
         action: :index,
         product: @folder[:product],
         only_path: true
-      }
-      params.merge!(locale: I18n.locale) if enforce_locale?
-      url_for(params)
       )
     elsif @folder[:root] == "#{Rails.configuration.docs_base_path}/_use_cases"
       url_for(

@@ -33,10 +33,10 @@ RSpec.describe 'Markdown', type: :request do
     context 'requesting a document in a language it is not available' do
       it 'sets the canonical url to the default locale' do
         allow(File).to receive(:read).and_call_original
-        expect(DocFinder).to receive(:find).and_raise(DocFinder::MissingDoc)
-        expect(DocFinder).to receive(:find).and_return(DocFinder::Doc.new(path: 'path/to/doc', available_languages: ['en']))
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).and_raise(Nexmo::Markdown::DocFinder::MissingDoc)
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).and_return(Nexmo::Markdown::DocFinder::Doc.new(path: 'path/to/doc', available_languages: ['en']))
         expect(File).to receive(:read).with('path/to/doc').and_return('markdown content')
-        allow(DocFinder).to receive(:find).and_call_original
+        allow(Nexmo::Markdown::DocFinder).to receive(:find).and_call_original
 
         get '/cn/messages/overview'
 
@@ -50,10 +50,10 @@ RSpec.describe 'Markdown', type: :request do
     context 'requesting a document in a language that is available and different from the default one' do
       it 'sets the canonical url to the default locale' do
         allow(File).to receive(:read).and_call_original
-        expect(DocFinder).to receive(:find).and_raise(DocFinder::MissingDoc)
-        expect(DocFinder).to receive(:find).and_return(DocFinder::Doc.new(path: 'path/to/doc', available_languages: ['cn', 'en']))
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).and_raise(Nexmo::Markdown::DocFinder::MissingDoc)
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).and_return(Nexmo::Markdown::DocFinder::Doc.new(path: 'path/to/doc', available_languages: ['cn', 'en']))
         expect(File).to receive(:read).with('path/to/doc').and_return('markdown content')
-        allow(DocFinder).to receive(:find).and_call_original
+        allow(Nexmo::Markdown::DocFinder).to receive(:find).and_call_original
 
         get '/cn/messages/overview'
 

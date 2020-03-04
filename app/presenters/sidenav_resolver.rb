@@ -42,7 +42,7 @@ class SidenavResolver
 
     # Do we have tasks for this product?
     product = path.sub(%r{#{Rails.configuration.docs_base_path}/\w+\/\w+\/}, '')
-    if DocumentationConstraint.product_with_parent_list.include? product
+    if DocumentationConstraint.products_for_routes.include? product
       tasks = TutorialList.by_product(product)
 
       # If we have use cases and tutorials, output them

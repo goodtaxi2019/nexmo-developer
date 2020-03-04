@@ -58,7 +58,7 @@ class MarkdownController < ApplicationController
     @document ||= Nexmo::Markdown::DocFinder.find(
       root: root_folder,
       document: params[:document],
-      language: I18n.locale,
+      language: params[:locale],
       product: params[:product],
       code_language: params[:code_language]
     )
@@ -82,7 +82,7 @@ class MarkdownController < ApplicationController
     @folder_config_path ||= Nexmo::Markdown::DocFinder.find(
       root: root_folder,
       document: "#{params[:document]}/.config.yml",
-      language: I18n.locale,
+      language: params[:locale],
       product: params[:product],
       code_language: params[:code_language]
     ).path
