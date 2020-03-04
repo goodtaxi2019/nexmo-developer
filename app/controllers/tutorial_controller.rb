@@ -93,7 +93,7 @@ class TutorialController < ApplicationController
       controller: :tutorial,
       action: action_name,
       product: @tutorial.current_product,
-      tutorial_name: @tutorial_name,
+      tutorial_name: @tutorial.name,
       tutorial_step: @tutorial.first_step
     )
   end
