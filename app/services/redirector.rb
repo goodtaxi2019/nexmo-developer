@@ -13,11 +13,7 @@ class Redirector
 
     Redirect.where(url: strip_locale_from_path(request.path)).first_or_create.increment!('uses') # rubocop:disable Rails/SkipsModelValidations
 
-    if request.params['locale']
-      "/#{request.params['locale']}#{url}"
-    else
-      url
-    end
+    url
   end
 
   def self.find_by_config(request)
