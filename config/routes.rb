@@ -79,11 +79,9 @@ Rails.application.routes.draw do
   get '/api-errors/:definition(/*subapi)', to: 'api_errors#index_scoped', as: 'api_errors_scoped', constraints: OpenApiConstraint.errors_available
   get '/api-errors/*definition/:id', to: 'api_errors#show', constraints: OpenApiConstraint.errors_available
 
-  get '(/:locale)/api', to: 'api#index', as: :api
+  get '/api', to: 'api#index', as: :api
 
-  scope '(/:locale)', constraints: LocaleConstraint.new do
-    mount ::Nexmo::OAS::Renderer::API, at: '/api'
-  end
+  mount ::Nexmo::OAS::Renderer::API, at: '/api'
 
   authenticated(:user) do
     mount Split::Dashboard, at: 'split' if ENV['REDIS_URL']
