@@ -8,7 +8,7 @@ class DocumentationConstraint
   end
 
   def self.product_with_parent
-    { product: Regexp.new(product_with_parent_list.compact.join('|')) }
+    { product: Regexp.new(product_with_parent_list.compact.reverse.join('|')) }
   end
 
   def self.product_with_parent_list
