@@ -14,3 +14,5 @@ Enter the number of your mobile phone into the text field in [E.164](/concepts/g
 You can also open up the web browser console and view logging messages there for your web app and the Client SDK. You will see the application attempting to connect to the target number you provided.
 
 Once the call comes through you can answer it and hear the in-app voice call.
+
+If you would like to delete your Glitch project, click the dropdown in the upper left corner with your `GLITCH-PROJECT-NAME` and select `Delete This Project`.
