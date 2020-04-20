@@ -11,7 +11,7 @@ You now need to create a Nexmo application. In this step you create an applicati
 
 2) Change into the project directory.
 
-3) Create a Nexmo application by copying and pasting the command below. Make sure to replace `GLITCH-PROJECT-NAME` and `App Name` with a name for your application. The following command enters interactive mode:
+3) Create a Nexmo application by copying and pasting the command below. Make sure to replace `GLITCH-PROJECT-NAME` and `App Name` with a name for your application.
 
 ``` shell
 nexmo app:create --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=https://GLITCH-PROJECT-NAME.glitch.me/ncco.json "App Name"
