@@ -15,6 +15,51 @@ You can find this document in `/app/views/contribute/guides/markdown-guide.md`. 
 
 There is no markdown syntax in here as this document is rendered with the same engine and no support exists for escaping Markdown. Examples would ultimately be rendered. To understand recursion you must first understand recursion.
 
+## Metadata
+
+The first part of a Markdown file includes metadata similar to the following:
+
+```
+---
+title: Markdown Guide
+navigation_weight: 3
+---
+```
+
+Broadly the purpose of the metadata is to provide useful information in the following areas:
+
+* Algolia search results (that is when you search in NDP)
+* Google (and other search engine) search results
+* Information for the navbar (also sometimes called the table of contents or TOC)
+
+The meta data items that can be used are described in the following table:
+
+Metadata | Description
+----|----
+title | This is the title for the topic that will be displayed in the navbar. This main be different to that display at the top of the topic. It is displayed in the Algolia search results when you search NDP.
+description | This is the short description for the topic. It is displayed in the Algolia search results when you search NDP.
+meta_title | Used in search engine results.
+meta_description | Used in search engine results.
+navigation_weight | A hint to position the topic in the navbar where a particular position is preferred. The lower the number used the higher in the navbar the item will appear. Overrides information defined in `config/navigation.yml`.
+
+### Example
+
+The following shows an example of metadata use:
+
+```
+---
+title: Overview
+description: An overview of the Vonage Voice API.
+meta_title: Text-To-Speech, IVR, Call Recording and more with the Vonage Voice API.
+meta_description: The Vonage Voice API is the easiest way to build high-quality voice applications in the Cloud.
+navigation_weight: 1
+---
+```
+
+### Guidelines on writing effective metadata
+
+TBD
+
 ## Typography
 
 **Headings**
